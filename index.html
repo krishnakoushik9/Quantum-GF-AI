@@ -133,10 +133,9 @@
             💻 Training with C-drama and K-drama subtitles<br>
             🤖 Creating an AI with the personality of a possessive girlfriend<br>
             💾 Generating quantized gguf file for high-performance interaction<br>
-            🌐 GitHub repo coming soon<br>
+            🌐 Drive link coming soon<br>
             wait for the sibidi brainrot you will have after using the model<br>
             hehheeee😈😈😈😈
-               
         </p>
     </div>
     <button id="audioControl">Play Ambience</button>
@@ -145,45 +144,25 @@
         const audioControl = document.getElementById('audioControl');
         let bgMusic;
 
-        audioControl.addEventListener('click', () => {
-            console.log('Button clicked');
-            if (!bgMusic) {
-                console.log('Creating new Audio object');
-                bgMusic = new Audio('https://raw.githubusercontent.com/krishnakoushik9/Quantum-GF-AI/main/ambient.mp3');
-                bgMusic.loop = true;
-            }
-            
-            if (bgMusic.paused) {
-                console.log('Attempting to play audio');
-                bgMusic.play().then(() => {
-                    console.log('Audio playing successfully');
+        audioControl.addEventListener('click', async () => {
+            try {
+                if (!bgMusic) {
+                    bgMusic = new Audio('https://drive.google.com/uc?export=download&id=19D-6vrx8EqfjUIGXAI9R_8ZgVbpdveJb');
+                    bgMusic.loop = true;
+                }
+
+                if (bgMusic.paused) {
+                    await bgMusic.play();
                     audioControl.textContent = 'Pause Ambience';
-                }).catch(error => {
-                    console.error('Audio playback failed:', error);
-                    audioControl.textContent = 'Audio Failed to Load';
-                });
-            } else {
-                console.log('Pausing audio');
-                bgMusic.pause();
-                audioControl.textContent = 'Play Ambience';
+                } else {
+                    bgMusic.pause();
+                    audioControl.textContent = 'Play Ambience';
+                }
+            } catch (error) {
+                console.error('Audio playback failed:', error);
+                audioControl.textContent = 'Audio Failed to Load';
             }
         });
-
-        // Screen glitch effect
-        function addGlitchEffect() {
-            const glitch = document.querySelector('.screen-glitch');
-            glitch.style.background = `
-                linear-gradient(${Math.random() * 360}deg, 
-                rgba(255,0,0,${Math.random() * 0.1}) ${Math.random() * 100}%, 
-                transparent ${Math.random() * 100}%),
-                linear-gradient(${Math.random() * 360}deg, 
-                rgba(0,255,255,${Math.random() * 0.1}) ${Math.random() * 100}%, 
-                transparent ${Math.random() * 100}%)
-            `;
-            setTimeout(addGlitchEffect, Math.random() * 1000 + 500);
-        }
-
-        addGlitchEffect();
     </script>
 </body>
 </html>
