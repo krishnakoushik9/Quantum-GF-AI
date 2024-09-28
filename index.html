@@ -134,7 +134,6 @@
             🤖 Creating an AI with the personality of a possessive girlfriend<br>
             💾 Generating quantized gguf file for high-performance interaction<br>
             🌐 GitHub repo coming soon
-            The GGUF file will be made available soon in this repo 
         </p>
     </div>
     <button id="audioControl">Play Ambience</button>
@@ -144,19 +143,24 @@
         let bgMusic;
 
         audioControl.addEventListener('click', () => {
+            console.log('Button clicked');
             if (!bgMusic) {
+                console.log('Creating new Audio object');
                 bgMusic = new Audio('ambient.mp3');
                 bgMusic.loop = true;
             }
             
             if (bgMusic.paused) {
+                console.log('Attempting to play audio');
                 bgMusic.play().then(() => {
+                    console.log('Audio playing successfully');
                     audioControl.textContent = 'Pause Ambience';
                 }).catch(error => {
                     console.error('Audio playback failed:', error);
                     audioControl.textContent = 'Audio Failed to Load';
                 });
             } else {
+                console.log('Pausing audio');
                 bgMusic.pause();
                 audioControl.textContent = 'Play Ambience';
             }
