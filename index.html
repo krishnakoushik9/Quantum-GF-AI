@@ -88,21 +88,6 @@
             95.83333333% { clip: rect(30px, 9999px, 86px, 0); }
             100% { clip: rect(44px, 9999px, 96px, 0); }
         }
-        #audioControl {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255, 0, 0, 0.2);
-            border: 1px solid rgba(255, 0, 0, 0.5);
-            color: #ff3333;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-family: 'Courier New', monospace;
-            transition: all 0.3s ease;
-        }
-        #audioControl:hover {
-            background: rgba(255, 0, 0, 0.3);
-        }
         .screen-glitch {
             position: fixed;
             top: 0;
@@ -121,6 +106,9 @@
             80% { transform: translate(5px, -5px) }
             100% { transform: translate(0) }
         }
+        .spotify-embed {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -134,35 +122,11 @@
             🤖 Creating an AI with the personality of a possessive girlfriend<br>
             💾 Generating quantized gguf file for high-performance interaction<br>
             🌐 Drive link coming soon<br>
-            wait for the sibidi brainrot you will have after using the model<br>
-            hehheeee😈😈😈😈
+            🎀 For all broken heart boys out there
         </p>
+        <div class="spotify-embed">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0ujPplwuZcH5skG5R2E9Hz?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
     </div>
-    <button id="audioControl">Play Ambience</button>
-
-    <script>
-        const audioControl = document.getElementById('audioControl');
-        let bgMusic;
-
-        audioControl.addEventListener('click', async () => {
-            try {
-                if (!bgMusic) {
-                    bgMusic = new Audio('https://drive.google.com/uc?export=download&id=19D-6vrx8EqfjUIGXAI9R_8ZgVbpdveJb');
-                    bgMusic.loop = true;
-                }
-
-                if (bgMusic.paused) {
-                    await bgMusic.play();
-                    audioControl.textContent = 'Pause Ambience';
-                } else {
-                    bgMusic.pause();
-                    audioControl.textContent = 'Play Ambience';
-                }
-            } catch (error) {
-                console.error('Audio playback failed:', error);
-                audioControl.textContent = 'Audio Failed to Load';
-            }
-        });
-    </script>
 </body>
 </html>
