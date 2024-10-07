@@ -136,6 +136,29 @@
         .audio-controls button:hover {
             background-color: rgba(0, 255, 255, 0.4);
         }
+        .social-links {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 10px;
+        }
+        .social-links a {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: rgba(255, 0, 255, 0.2);
+            border: 1px solid #ff00ff;
+            color: #ff00ff;
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background-color: rgba(255, 0, 255, 0.4);
+            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+        }
     </style>
 </head>
 <body>
@@ -160,6 +183,12 @@
     </audio>
     <div class="audio-controls">
         <button onclick="toggleAudio()">Toggle Ambient Sound</button>
+    </div>
+    <div class="social-links">
+        <a href="https://www.instagram.com/krishna_legion/" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/legionkrsna" target="_blank">LinkedIn</a>
+        <a href="https://huggingface.co/LOHAMEIT" target="_blank">HuggingFace</a>
+        <a href="https://x.com/Koushik1156" target="_blank">Twitter</a>
     </div>
     <script>
         const audioPlayer = document.getElementById('audioPlayer');
