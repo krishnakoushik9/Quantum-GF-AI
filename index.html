@@ -25,16 +25,35 @@
             z-index: 1;
             padding: 20px;
             box-sizing: border-box;
+        /* Flashlight effect */
+        .flashlight-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1001;
         }
+
         .flashlight {
             position: absolute;
-            width: 200px;
-            height: 200px;
+            width: 400px;
+            height: 400px;
             background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 80%);
             pointer-events: none;
-            mix-blend-mode: overlay;
-            z-index: 1001;
+            mix-blend-mode: darken;
             transition: transform 0.1s ease-out;
+        }
+
+        .flashlight-mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 1000;
         }
         h1 {
             font-size: clamp(1.5rem, 5vw, 2.5rem);
@@ -195,7 +214,9 @@
 </head>
 <body>
     <div class="screen-glitch"></div>
+    <div class="flashlight-container">
     <div class="flashlight"></div>
+    <div class="flashlight-mask"></div>
     <div class="container">
         <h1 class="glitch" data-text="Quantum Girlfriend v1.0">Quantum Girlfriend v1.0</h1>
         <div class="neon-line"></div>
@@ -233,10 +254,12 @@
                 audioPlayer.pause();
             }
         }
-         const flashlight = document.querySelector('.flashlight');
+        const flashlightContainer = document.querySelector('.flashlight-container');
+        const flashlight = document.querySelector('.flashlight');
+        const flashlightMask = document.querySelector('.flashlight-mask');
 
         document.addEventListener('mousemove', (e) => {
-            flashlight.style.transform = `translate(${e.clientX - 100}px, ${e.clientY - 100}px)`;
+            flashlight.style.transform = `translate(${e.clientX - 200}px, ${e.clientY - 200}px)`;
         });
     </script>
 </body>
